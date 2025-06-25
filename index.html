@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maysis App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; margin: 0;
+        }
+        .container { 
+            background: rgba(255,255,255,0.1); 
+            padding: 30px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 30px; height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn {
+            background: #4CAF50; color: white;
+            padding: 12px 24px; border: none;
+            border-radius: 25px; text-decoration: none;
+            display: inline-block; margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📱 Maysis</h2>
+        <div class="spinner"></div>
+        <p id="status">Uygulama açılıyor...</p>
+        <div id="fallback" style="display:none;">
+            <p>Uygulama bulunamadı</p>
+            <a href="https://apps.apple.com" class="btn">App Store</a>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const r = params.get('r') || '';
+        const customURL = 'maysis://r=' + r;
+        
+        // Immediate redirect
+        window.location.href = customURL;
+        
+        // Fallback after 2 seconds
+        setTimeout(() => {
+            document.getElementById('status').textContent = 'Yönlendiriliyor...';
+            document.getElementById('fallback').style.display = 'block';
+        }, 2000);
+    </script>
+</body>
+</html>

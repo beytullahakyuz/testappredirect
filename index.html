@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Maysis App</title>
+    <title>Test App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { 
@@ -41,19 +41,20 @@
 </head>
 <body>
     <div class="container">
-        <h2>📱 Maysis</h2>
+        <h2>📱 Testapp</h2>
         <div class="spinner"></div>
         <p id="status">Uygulama açılıyor...</p>
         <div id="fallback" style="display:none;">
             <p>Uygulama bulunamadı</p>
             <a href="https://apps.apple.com" class="btn">App Store</a>
+			<a href="https://apps.apple.com" class="btn">Google Play</a>
         </div>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const r = params.get('r') || '';
-        const customURL = 'maysis://r=' + r;
+        const r = params.get('ar') || '';
+        const customURL = 'maysis://ar=' + r;
         
         // Immediate redirect
         window.location.href = customURL;

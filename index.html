@@ -47,14 +47,19 @@
         <div id="fallback" style="display:none;">
             <p>Uygulama bulunamadı</p>
             <a href="https://apps.apple.com" class="btn">App Store</a>
-			<a href="https://apps.apple.com" class="btn">Google Play</a>
+			<a href="https://play.google.com/" class="btn">Google Play</a>
         </div>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const r = params.get('ar') || '';
-        const customURL = 'maysis://ar=' + r;
+		let customURL;
+        let ar = params.get('ar') || '';
+		if (ar != '')
+			customURL = 'maysis://ar=' + ar;
+		let ur = params.get('ur') || '';
+		if (ur != '')
+			customURL = 'maysis://ur=' + ur;
         
         // Immediate redirect
         window.location.href = customURL;

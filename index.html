@@ -60,6 +60,10 @@
 		let ur = params.get('ur') || '';
 		if (ur != '')
 			customURL = 'maysis://ur=' + ur;
+			
+		let ur = params.get('rp') || '';
+		if (ur != '')
+			customURL = 'maysis://rp=' + ur;
         
         // Immediate redirect
         window.location.href = customURL;

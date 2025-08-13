@@ -56,14 +56,14 @@
 		let customURL;
         let ar = params.get('ar') || '';
 		if (ar != '')
-			customURL = 'maysis://ar=' + ar;
+			customURL = 'maysis://?ar=' + ar;
 		let ur = params.get('ur') || '';
 		if (ur != '')
-			customURL = 'maysis://ur=' + ur;
+			customURL = 'maysis://?ur=' + ur;
 			
 		let rp = params.get('rp') || '';
 		if (rp != '')
-			customURL = 'maysis://rp=' + rp;
+			customURL = 'maysis://?rp=' + rp;
         
         // Immediate redirect
         window.location.href = customURL;
